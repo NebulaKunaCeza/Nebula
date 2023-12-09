@@ -41,6 +41,5 @@ wysltek@gmail.com
 Merci à toutes les personnes qui ont contribué au développement de Nebula. Voici la liste des contributeurs :
 
 - [WyslteK] - Créateur du projet, contributions diverses
-- [Marwa] - Mise en place de la syntaxe, codage de la logique globale de l'interpréteur
 
 N'hésitez pas à explorer et à contribuer au développement de Nebula !
