@@ -1,45 +1,47 @@
+# Nebula - A Modular Programming Language
 
-# Nebula - Un langage de programmation modulaire
+Welcome to the Nebula project, a versatile programming language designed to meet various needs, with specific extensions for different use cases.
 
-Bienvenue dans le projet Nebula, un langage de programmation polyvalent conçu pour répondre à divers besoins, avec des extensions spécifiques pour différentes utilisations.
-
-## Principales branches du projet
+## Main Project Branches
 
 ### Nebula Core
-- **Description :** Le cœur de Nebula, un langage de programmation simple et extensible.
-- **Utilisation :** Adapté pour diverses applications avec une base solide.
+- **Description:** The heart of Nebula, a simple and extensible programming language.
+- **Usage:** Suited for various applications with a solid foundation.
 
 ### Ceza
-- **Description :** Extension spécifique pour le moteur Godot Engine 4.2. Ceza est un excellent choix si vous voulez coder une application avec laquelle l'utilisateur peut coder.
-- **Utilisation :** Intégration facilitée avec Godot pour des fonctionnalités personnalisées.
+- **Description:** Specific extension for the Godot Engine 4.2. Ceza is an excellent choice if you want to code an application where the user can also code.
+- **Usage:** Seamless integration with Godot for custom features.
 
 ### Kuna
-- **Description :** Extension plus libre et vaste, moins compatible avec d'autres applications.
-- **Utilisation :** Adapté pour des projets plus complexes et spécifiques.
+- **Description:** A more open and extensive extension, less compatible with other applications.
+- **Usage:** Suitable for more complex and specific projects.
 
 ### Luna
-- **Description :** Assistant de bord indépendant, sans besoin de compilateur/interpréteur.
-- **Utilisation :** Pratique pour des tâches simples sans gestion de fichiers source.
+- **Description:** Standalone dashboard assistant, no need for a compiler/interpreter.
+- **Usage:** Convenient for simple tasks without source file management.
 
 ### Nebula -8Ln
-- **Description :** Version légère de Nebula, utilisable presque partout.
-- **Utilisation :** Idéal pour des scénarios où les ressources sont limitées, avec une restriction à 8 lignes par programme.
+- **Description:** Lightweight version of Nebula, usable almost anywhere.
+- **Usage:** Ideal for scenarios with limited resources, with a restriction to 8 lines per program.
 
-## Comment commencer
-Consultez les sous-dossiers correspondants pour des instructions spécifiques à chaque extension. Chaque branche a sa propre documentation détaillée et des exemples pour vous guider.
+## Getting Started
+Check the corresponding subfolders for specific instructions for each extension. Each branch has its detailed documentation and examples to guide you.
 
 ## Installation
-Suivez ces étapes pour installer Nebula et ses extensions :
-
-1. [Projet non fini]
+Follow these steps to install Nebula and its extensions:
+(This is the installation for Nebula version beta 1.01.)
+1. Install this GitHub project.
+2. In the `Nebula Environment maker` folder, you will find an `.exe` file. Run it and follow the instructions.
+3. Start coding!
 
 ## Contact
-Pour des questions ou collaborations, n'hésitez pas à nous contactez sur :
+For questions or collaborations, feel free to contact us at:
 wysltek@gmail.com
-## Contributeurs
 
-Merci à toutes les personnes qui ont contribué au développement de Nebula. Voici la liste des contributeurs :
+## Contributors
+Thanks to everyone who contributed to the development of Nebula. Here is the list of contributors:
 
-- [WyslteK] - Créateur du projet, contributions diverses
+- [WyslteK] - Project creator, various contributions
+- [SPL] - Creator of the Python part
 
-N'hésitez pas à explorer et à contribuer au développement de Nebula !
+Feel free to explore and contribute to the development of Nebula!
