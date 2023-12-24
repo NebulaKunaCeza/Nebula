@@ -1,7 +1,6 @@
+
 #pragma once
-/*Nebula*/ 
 #include "Nebula.hpp"
-/*std*/
 #include "string"
 
 namespace Nebula
@@ -14,9 +13,8 @@ namespace Nebula
         private:
             std::string settings = "*Nebula*\n[Version 1.00]\nSettings{\n    Nebula version : 1.00\n    Task Path : ./NebulaProject/.Nebula/Task.nts\n    Header Path : ./NebulaProject/Header\n    Slot Path : ./NebuaProject/Slot\n}";
             std::string task = "*Nebula*\nTask{\n    C++ : G++\n    C : GCC\n    Nebula : NWys\n    Slot : NSWys\n}";
-            std::string Main = R"(/*Nebula*/
+            std::string Main = R"(
 #include "Header/Nebula.hpp"
-/*std*/
 #include "string"
 
 Nebula::Out Out;
@@ -28,13 +26,9 @@ int main() {
     /*Code*/
     return 0;
 }
-/* thanks to : 
-    - Wyslte : Global code, creator of the project
-    - SPL : Python part
-    - [No Name]
-*/
-            )";
-            std::string NfileCode = R"(#pragma once
+)";
+            std::string NfileCode = R"(
+#pragma once
 
 #include "Out.hpp"
 #include "In.hpp"
@@ -47,7 +41,6 @@ namespace Nebula
         Out Out;
         Uii Input;
     public:
-        // Function to read the content of a file
         std::string readFile(const std::string& filePath) {
             std::ifstream file(filePath);
             if (file.is_open()) {
@@ -59,7 +52,6 @@ namespace Nebula
             }
         }
 
-        // Function to write to a file
         void writeFile(const std::string& filePath, const std::string& content) {
             std::ofstream file(filePath);
             if (file.is_open()) {
@@ -70,35 +62,30 @@ namespace Nebula
             }
         }
 
-        // Function to open a directory and list its contents
         void listFilesInDirectory(const std::string& directoryPath) {
             for (const auto& entry : std::filesystem::directory_iterator(directoryPath)) {
                 Out.Println(entry.path().string());
             }
         }
 
-        // Function to create a directory
         void createDirectory(const std::string& directoryPath) {
             if (!std::filesystem::create_directory(directoryPath)) {
                 Out.Println("Error creating the directory.");
             }
         }
 
-        // Function to delete a file
         void deleteFile(const std::string& filePath) {
             if (!std::filesystem::remove(filePath)) {
                 Out.Println("Error deleting the file.");
             }
         }
 
-        // Function to delete a directory (and its contents)
         void deleteDirectory(const std::string& directoryPath) {
             if (!std::filesystem::remove_all(directoryPath)) {
                 Out.Println("Error deleting the directory.");
             }
         }
 
-        // Function to create a file
         void createFile(const std::string& filePath, const std::string& content = "") {
             std::ofstream file(filePath);
             if (file.is_open()) {
@@ -111,11 +98,10 @@ namespace Nebula
             }
         }
     };
-} // namespace Nebula
+}
 )";
-            std::string OutCode = R"(/*Out.hpp*/
+            std::string OutCode = R"(
 #pragma once
-/*std*/
 #include <string>
 #include <iostream>
 
@@ -132,10 +118,9 @@ namespace Nebula {
                 std::cerr << '$' <<  ' ' << Object << std::endl;
             }
     };
-} // namespace Nebula
-            )";
+}
+)";
             std::string InCode = R"(
-/*In.hpp*/
 #pragma once 
 
 #include <iostream>
@@ -144,51 +129,44 @@ namespace Nebula {
 namespace Nebula {
     class Uii {
     public:
-        // Demande et retourne un entier saisi par l'utilisateur
         int GetInteger() {
             int userInteger;
             std::cin >> userInteger;
             return userInteger;
         }
 
-        // Demande et retourne un nombre à virgule flottante saisi par l'utilisateur
         double GetDouble() {
             double userDouble;
             std::cin >> userDouble;
             return userDouble;
         }
 
-        // Demande et retourne un nombre à virgule flottante (float) saisi par l'utilisateur
         float GetFloat() {
             float userFloat;
             std::cin >> userFloat;
             return userFloat;
         }
 
-        // Demande et retourne une valeur booléenne saisie par l'utilisateur
         bool GetBoolean() {
             bool userBool;
             std::cin >> userBool;
             return userBool;
         }
 
-        // Demande et retourne un caractère saisi par l'utilisateur
         char GetChar() {
             char userChar;
             std::cin >> userChar;
             return userChar;
         }
 
-        // Demande et retourne une chaîne de caractères saisie par l'utilisateur
         std::string GetString() {
             std::string userString;
             std::getline(std::cin, userString);
             return userString;
         }
     };
-} // namespace NebulaLN
-
-            )";
+}
+)";
 std::string TasksJSON = R"(
 {
     "version": "2.0",
@@ -203,7 +181,7 @@ std::string TasksJSON = R"(
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
                 "-I",
-                "./Header"  // Path to the include directory
+                "./Header"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -286,11 +264,9 @@ std::string settingsJSON = R"(
 )";
 std::string Nebulahead = R"(
 #pragma once 
-/*Nebula*/
 #include "Nfile.hpp"
 #include "In.hpp"
 #include "Out.hpp"
-/*std*/
 #include "string"
 namespace Nebula
 {
@@ -301,58 +277,36 @@ namespace Nebula
         public:
             void NewConsole() {
                 std::system("start cmd");
-                /*
-                while (true) {
-                    Out.Print("Nebula$ ");
-                    std::string inp = Input.GetString();
-                    if (inp == "exit") {
-                        std::system("pause");
-                        break;
-                    } else {
-                        continue;
-                    }
-                }
-                */
             }
     };
-} // namespace Nebua
+}
 )";
         public:
             void CreateNebulaEnvironement() {
                 File.createDirectory("./NebulaProject");
                 
                 File.createDirectory("./NebulaProject/.Nebula");
-                /*.vscode*/
                 File.createDirectory("./NebulaProject/.vscode");
-                /*settings*/
                 File.createFile("./NebulaProject/.vscode/settings.json");
                 File.writeFile("./NebulaProject/.vscode/settings.json", settingsJSON);
-                /*task*/
                 File.createFile("./NebulaProject/.vscode/tasks.json");
                 File.writeFile("./NebulaProject/.vscode/tasks.json",TasksJSON);
-                /*Nebula*/
                 File.createFile("./NebulaProject/.Nebula/Settings.nse");
                 File.createFile("./NebulaProject/.Nebula/Task.nts");
                 File.createDirectory("./NebulaProject/Header");
                 File.createDirectory("./NebulaProject/Slot");
                 CreatSettings();
                 CreatTask(); 
-                /*Out.hpp*/
                 File.createFile("./NebulaProject/Header/Out.hpp");
                 File.writeFile("./NebulaProject/Header/Out.hpp", OutCode);
-                /*In.hpp*/
                 File.createFile("./NebulaProject/Header/In.hpp");
                 File.writeFile("./NebulaProject/Header/In.hpp", InCode);
-                /*Nfile.hpp*/
                 File.createFile("./NebulaProject/Header/Nfile.hpp");
                 File.writeFile("./NebulaProject/Header/Nfile.hpp",NfileCode);
-                /*Nebula.hpp*/
                 File.createFile("./NebulaProject/Header/Nebula.hpp");
                 File.writeFile("./NebulaProject/Header/Nebula.hpp",Nebulahead);
-                /*Main.cpp*/
                 File.createFile("./NebulaProject/Main.cpp");
                 File.writeFile("./NebulaProject/Main.cpp", Main);
-                /*End*/
                 Out.Println("Success. All File created in ./NebulaProject : ");
                 File.listFilesInDirectory("./NebulaProject");
                 Out.Println("File in ./.Nebula : ");
@@ -363,7 +317,7 @@ namespace Nebula
                 #ifdef _WIN32
                 std::system("code ./NebulaProject/");
                 #elif defined(__linux__) || defined(__APPLE__)
-                std::system("code ./NebulaProject/");  // Exécute la commande 'ls' sur Linux/macOS
+                std::system("code ./NebulaProject/");
                 #endif 
                 System.NewPythonConsole();
             }
